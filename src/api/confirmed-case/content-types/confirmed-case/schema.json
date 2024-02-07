@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "confirmed_cases",
+  "info": {
+    "singularName": "confirmed-case",
+    "pluralName": "confirmed-cases",
+    "displayName": "Confirmed Case",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::student.student",
+      "inversedBy": "confirmed_cases"
+    },
+    "tutors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tutor.tutor",
+      "inversedBy": "confirmed_tutors"
+    },
+    "Starting_Month": {
+      "type": "string",
+      "required": true
+    },
+    "Fees": {
+      "type": "integer",
+      "required": true
+    },
+    "Comments": {
+      "type": "text"
+    }
+  }
+}

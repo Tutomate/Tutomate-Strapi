@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Address": {
+      "type": "text",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "unique": true,
+      "required": false
+    },
+    "School_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Comments": {
+      "type": "text"
+    },
+    "board": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::board.board",
+      "inversedBy": "students"
+    },
+    "medium": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::medium.medium",
+      "inversedBy": "students"
+    },
+    "subjects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subject.subject",
+      "inversedBy": "students"
+    },
+    "class": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::class.class",
+      "inversedBy": "students"
+    },
+    "tutors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tutor.tutor",
+      "mappedBy": "students"
+    },
+    "confirmed_cases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::confirmed-case.confirmed-case",
+      "mappedBy": "students"
+    }
+  }
+}

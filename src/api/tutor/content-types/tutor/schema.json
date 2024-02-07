@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tutors",
+  "info": {
+    "singularName": "tutor",
+    "pluralName": "tutors",
+    "displayName": "Tutor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Mobile": {
+      "type": "string",
+      "regex": "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$",
+      "required": true,
+      "unique": true
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Age": {
+      "type": "integer"
+    },
+    "Qualification": {
+      "type": "blocks",
+      "required": true
+    },
+    "Preferable_location": {
+      "type": "blocks"
+    },
+    "Address": {
+      "type": "blocks",
+      "required": true
+    },
+    "subjects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subject.subject",
+      "inversedBy": "tutors"
+    },
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::student.student",
+      "inversedBy": "tutors"
+    },
+    "classes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::class.class",
+      "inversedBy": "tutors"
+    },
+    "confirmed_tutors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::confirmed-case.confirmed-case",
+      "mappedBy": "tutors"
+    }
+  }
+}
